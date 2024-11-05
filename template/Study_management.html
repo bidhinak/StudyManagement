@@ -1,0 +1,42 @@
+<div style="text-align:center;background-color:skyblue;">
+<h1>Study management</h1>
+    <div style="display:flex;gap:30px;justify-content:space-evenly;margin-bottom:10px;" ><a href="{% url 'Add_study' %}"><button>Add study</button></a> <a href="{% url 'delete_study' %}"><button>Delete Study</button></a></div>
+
+<table class="table" style="border: 2px solid black; border-collapse: collapse;width:80%;margin-left:80px;">
+
+    <thead class="table table-striped">
+
+    <tr>
+        <th scope="col" style="border: 1px solid black;padding:5px;">NO</th>
+        <th scope="col" style="border: 1px solid black;">study name</th>
+        <th scope="col" style="border: 1px solid black;">Study Phase</th>
+        <th scope="col" style="border: 1px solid black;">sponsor Name</th>
+        <th scope="col" style="border: 1px solid black;">Study Description</th>
+    </tr>
+    </thead>
+   <tbody>
+
+        {% for i in show %}
+    <tr>
+         <td style="border: 1px solid black;padding:5px;">{{forloop.counter}}</td>
+         <td style="border: 1px solid black;">{{ i.study_name}} </td>
+        <td style="border: 1px solid black;">{{i.study_phase}}  </td>
+        <td style="border: 1px solid black;">{{i.sponsor_name}}  </td>
+        <td style="border: 1px solid black;">{{i.study_description}}  </td>
+
+    <td style="border: 1px solid black; padding:5px;"><a href="{% url 'StudyView' i.id %}" class="btn btn-outline-dark">View </a></td>
+    <td style="border: 1px solid black; padding:5px;"><a href="{% url 'StudyEdit' i.id %}" class="btn btn-outline-dark">Edit </a></td>
+   <td style=" border: 1px solid black;padding:5px;"><a href="{% url 'StudyDelete' i.id %}" class="btn btn-outline-dark">Delete </a></td>
+
+
+
+
+
+
+    </tr>
+   {% endfor %}
+
+
+   </tbody>
+</table>
+    </div>

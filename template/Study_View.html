@@ -1,0 +1,17 @@
+{% load crispy_forms_tags %}
+<form method="post" style="display:flex;flex-direction:column;gap:8px;width:50%;">
+    {% csrf_token %}
+<label>study_name</label>
+    <input type="text"  value="{{ show.study_name }}" readonly>
+
+<label>study_description</label>
+        <input type="text"  value="{{ show.study_description }}" readonly>
+
+<label>study_phase</label>
+        <input type="text"  value="{{ show.study_phase }}" readonly>
+
+<label>sponsor_name</label>
+        <input type="text"  value="{{ show.sponsor_name }}" readonly>
+
+</form>
+<a href="{% url 'Study_management' %}"><button>Back</button></a>

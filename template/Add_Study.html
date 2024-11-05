@@ -1,0 +1,18 @@
+<form method="post" style="display:flex;flex-direction:column;gap:8px;width:50%;">
+    {% csrf_token %}
+    {{ form.study_name.label_tag }}{{ form.study_name }}
+    {{ form.study_description.label_tag }}{{ form.study_description }}
+    {{ form.study_phase.label_tag }}{{ form.study_phase }}
+
+    <label for="id_sponsor_name">{{ form.sponsor_name.label }}</label>
+    {{ form.sponsor_name }}
+
+    <datalist id="sponsor_list">
+        {% for sponsor in sponsors %}
+            <option value="{{ sponsor }}">{{ sponsor }}</option>
+        {% endfor %}
+    </datalist>
+
+    <button type="submit">Add</button>
+</form>
+<a href="{% url 'Study_management' %}"><button>Back</button></a>
